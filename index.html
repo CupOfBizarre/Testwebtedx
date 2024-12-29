@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="nav">
+        <div class="logo"><img src="TED.png" id="img-logo" /></div>
+
+        <ul class="nav-links">
+          <li><a href="#event">Event</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li>
+            <div class="icon-wrapper">
+              <a href="https://facebook.com" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="icon-wrapper">
+              <a href="https://instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </li>
+          <li>
+            <a href="https://ted.com" target="_blank" class="ted-logo">
+              <img src="tedx.png" id="ted-img" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+   
+
+    <div class="wrapper">
+      <div id="caption" class="caption">...</div> <br>
+      <div class="img-parent">
+        <div
+          class="img"
+          onclick="openModal(1)"
+          onmouseover="hoverImage(1)"
+          style="background-image: url(pokemon/1.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(2)"
+          onmouseover="hoverImage(2)"
+          style="background-image: url(pokemon/2.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(3)"
+          onmouseover="hoverImage(3)"
+          style="background-image: url(pokemon/3.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(4)"
+          onmouseover="hoverImage(4)"
+          style="background-image: url(pokemon/4.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(5)"
+          onmouseover="hoverImage(5)"
+          style="background-image: url(pokemon/5.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(6)"
+          onmouseover="hoverImage(6)"
+          style="background-image: url(pokemon/6.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(7)"
+          onmouseover="hoverImage(7)"
+          style="background-image: url(pokemon/7.jpg)"
+        ></div>
+        <div
+          class="img"
+          onclick="openModal(8)"
+          onmouseover="hoverImage(8)"
+          style="background-image: url(pokemon/8.jpg)"
+        ></div>
+      </div>
+    </div>
+
+    <div class="modal-container" id="modal-container">
+      <div id="modalid" class="modalclass">
+        <img src="pokemon/1.jpg" id="imgid" />
+        <div class="modal-description" id="modal-description">
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Fames sagittis
+          sapien molestie tortor sociosqu auctor rutrum. At commodo augue
+          dapibus suscipit mauris pharetra sapien eleifend. Semper magna eget
+          vitae augue, elementum curabitur proin. Aenean ullamcorper eleifend
+          placerat augue magnis. Tellus non lacus bibendum sem turpis lacinia
+          interdum. Imperdiet feugiat mus sem ex posuere litora; porta convallis
+          semper?
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
