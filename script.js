@@ -63,7 +63,5 @@ function hoverImage(imgId) {
         caption.style.display = "block";
         caption.style.animation = "fadein 0.5s";
     }, 100);
-
-
 }
 
