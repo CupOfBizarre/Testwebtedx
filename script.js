@@ -85,14 +85,18 @@ function hideCaption() {
 }
 
 /* Mobile Slider Functionality */
-// For mobile, when an image is clicked, add a zoom effect to both the image and its caption
+// For mobile, toggle zoom on tap so that the caption appears
 function openMobileModal(imgId) {
-  // Get the mobile image element that was clicked (assume each mobile-img has a data-id attribute)
   var mobileImg = document.querySelector('.mobile-img[data-id="' + imgId + '"]');
   if (mobileImg) {
     mobileImg.classList.toggle("zoom");
   }
-  // Optionally, you can also update text or open a modal similar to desktop here.
+}
+
+/* Mobile Navigation Toggle */
+function toggleNav() {
+  var navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("active");
 }
 
 const speakers = [
