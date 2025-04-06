@@ -8,38 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Existing fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Federo&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet" />
     <!-- New vintage/classy font for the nav bar -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="wrapper">
       <div class="site-content">
+        <!-- Navigation Section -->
         <div class="nav-container">
           <nav class="nav">
             <div class="logo">
               <img src="TED.png" id="img-logo" alt="TED Logo" />
             </div>
-            <ul class="nav-links">
+            <!-- Hamburger for mobile -->
+            <div class="hamburger" onclick="toggleNav()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
               <li><a href="#event">Event</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#speakers">Speakers</a></li>
@@ -67,7 +59,7 @@
           </nav>
         </div>
 
-        <!-- Desktop Slider (only visible on larger screens) -->
+        <!-- Desktop Slider (visible on larger screens) -->
         <div class="desktop-slider">
           <div class="image-wrapper">
             <div id="caption" class="caption">...</div>
@@ -84,20 +76,19 @@
           </div>
         </div>
 
-        <!-- Mobile Slider (only visible on phones) -->
+        <!-- Mobile Slider (visible on phones) -->
         <div class="mobile-slider">
           <div class="mobile-img-container">
-            <!-- A simple slider; you could loop these or use a library for sliding -->
-            <div class="mobile-img" onclick="openMobileModal(1)" style="background-image: url(pokemon/1.jpg)">
+            <div class="mobile-img" data-id="1" onclick="openMobileModal(1)" style="background-image: url(pokemon/1.jpg)">
               <div class="mobile-caption">About us</div>
             </div>
-            <div class="mobile-img" onclick="openMobileModal(2)" style="background-image: url(pokemon/2.jpg)">
+            <div class="mobile-img" data-id="2" onclick="openMobileModal(2)" style="background-image: url(pokemon/2.jpg)">
               <div class="mobile-caption">Something</div>
             </div>
-            <div class="mobile-img" onclick="openMobileModal(3)" style="background-image: url(pokemon/3.jpg)">
+            <div class="mobile-img" data-id="3" onclick="openMobileModal(3)" style="background-image: url(pokemon/3.jpg)">
               <div class="mobile-caption">Nothing</div>
             </div>
-            <!-- Add more mobile images as needed -->
+            <!-- Add more mobile slider images as needed -->
           </div>
         </div>
 
@@ -106,18 +97,10 @@
           <div id="modalid" class="modalclass">
             <img src="pokemon/1.jpg" id="imgid" alt="Modal Image" />
             <div class="modal-description" id="modal-description">
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Fames sagittis
-              sapien molestie tortor sociosqu auctor rutrum. At commodo augue
-              dapibus suscipit mauris pharetra sapien eleifend. Semper magna eget
-              vitae augue, elementum curabitur proin. Aenean ullamcorper eleifend
-              placerat augue magnis. Tellus non lacus bibendum sem turpis lacinia
-              interdum. Imperdiet feugiat mus sem ex posuere litora; porta convallis
-              semper?
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Fames sagittis sapien molestie tortor sociosqu auctor rutrum. At commodo augue dapibus suscipit mauris pharetra sapien eleifend. Semper magna eget vitae augue, elementum curabitur proin. Aenean ullamcorper eleifend placerat augue magnis. Tellus non lacus bibendum sem turpis lacinia interdum. Imperdiet feugiat mus sem ex posuere litora; porta convallis semper?
             </div>
           </div>
         </div>
-
-        <!-- (Optionally, you could reuse the modal for mobile with alternate styling) -->
       </div>
     </div>
 
