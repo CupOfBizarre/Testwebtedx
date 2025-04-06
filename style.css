@@ -32,7 +32,7 @@ body {
 }
 
 /* ========================================
-   Image Gallery (Desktop Slider)
+   Desktop Slider (Image Gallery)
 ======================================== */
 .desktop-slider .image-wrapper {
   display: flex;
@@ -112,8 +112,7 @@ body {
   top: 300px;
   left: 50%;
   transform: translateX(-50%);
-  animation-name: fadein;
-  animation-duration: 0.5s;
+  animation: fadein 0.5s;
   display: none;
 }
 
@@ -121,7 +120,7 @@ body {
    Modal Styling (Desktop)
 ======================================== */
 .modal-container {
-  position: fixed; /* Use fixed to ensure modal covers viewport */
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.25);
@@ -141,11 +140,9 @@ body {
   position: relative;
   text-align: center;
   animation: modalappear 0.5s;
-  /* Remove any box-shadow to eliminate the unwanted rectangle shadow */
   box-shadow: none;
 }
 
-/* Ensure the image in the modal takes full width and no extra spacing */
 #imgid {
   width: 100%;
   display: block;
@@ -153,12 +150,11 @@ body {
   margin: 0;
 }
 
-/* Modal description sits below the image */
 .modal-description {
   background-color: var(--color1);
   color: var(--color2);
   padding: 8px 16px;
-  position: relative;  /* Changed from absolute to relative so it sits naturally below the image */
+  position: relative;
   width: 100%;
   border-radius: 0 0 10px 10px;
   animation: fadein 1.5s;
@@ -172,7 +168,6 @@ body {
   display: none;
 }
 
-/* Mobile slider container styles */
 .mobile-slider .mobile-img-container {
   display: flex;
   overflow-x: auto;
@@ -188,14 +183,13 @@ body {
   background-position: center;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-/* On click, add a zoom effect (this class will be toggled in JS) */
 .mobile-slider .mobile-img.zoom {
   transform: scale(1.1);
 }
 
-/* Mobile caption over image */
 .mobile-slider .mobile-caption {
   position: absolute;
   bottom: 10px;
@@ -210,26 +204,31 @@ body {
   transition: opacity 0.3s ease;
 }
 
-/* When zoomed, also fade in the caption */
 .mobile-slider .mobile-img.zoom .mobile-caption {
   opacity: 1;
 }
 
 /* ========================================
-   Keyframe Animations
+   Hamburger Menu (Mobile Nav)
 ======================================== */
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
 }
 
-@keyframes modalappear {
-  from { opacity: 0; bottom: -300px; width: 0; }
-  to { opacity: 1; bottom: 0; width: 50%; }
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: var(--color2);
+  border-radius: 2px;
 }
 
 /* ========================================
-   Redesigned Vintage Navigation Bar
+   Navigation Bar (Desktop & Mobile)
 ======================================== */
 .nav {
   display: flex;
@@ -259,8 +258,7 @@ body {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.logo img:hover,
-.ted-logo img:hover {
+.logo img:hover, .ted-logo img:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
   cursor: pointer;
@@ -345,30 +343,26 @@ body {
   overflow: hidden;
 }
 
-.speakers,
-.sponsors {
+.speakers, .sponsors {
   padding: 50px;
   background: linear-gradient(90deg, var(--color1), var(--color4));
   margin-top: 20px;
 }
 
-.speakers h2,
-.sponsors h2 {
+.speakers h2, .sponsors h2 {
   font-size: 28px;
   margin-bottom: 20px;
   font-family: 'Cinzel', serif;
 }
 
-.speaker-list,
-.sponsor-list {
+.speaker-list, .sponsor-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.speaker,
-.sponsor {
+.speaker, .sponsor {
   background: linear-gradient(90deg, var(--color1), var(--color4));
   padding: 15px;
   border-radius: 8px;
@@ -377,8 +371,7 @@ body {
   text-align: center;
 }
 
-.speaker img,
-.sponsor img {
+.speaker img, .sponsor img {
   width: 100%;
   border-radius: 8px;
 }
@@ -410,8 +403,7 @@ body {
 }
 
 /* ========================================
-   Responsive Display:
-   Hide desktop slider on mobile; show mobile slider only on small screens.
+   Responsive Adjustments (Mobile)
 ======================================== */
 @media screen and (max-width: 767px) {
   .desktop-slider {
@@ -419,6 +411,27 @@ body {
   }
   .mobile-slider {
     display: block;
+  }
+  /* Show hamburger on mobile and hide desktop nav links */
+  .hamburger {
+    display: flex;
+  }
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color1), var(--color4));
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 0;
+  }
+  #nav-links.active {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
   }
 }
 
