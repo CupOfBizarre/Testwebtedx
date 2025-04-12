@@ -8,27 +8,35 @@
 }
 
 /* ========================================
-   Root Variables - Vintage Palette
+   Root Variables - Expanded Vintage Palette
 ======================================== */
 :root {
-  --color1: #F0BB78;  /* Warm Accent */
-  --color2: #131010;  /* Dark tone (text) */
-  --color3: #543A14;  /* Deep Brown */
-  --color4: #FFF0DC;  /* Light Background */
-  --color5: #F0BB78;  /* Accent Repeat */
-  --color6: #543A14;  /* Brown Repeat */
-  --color7: #131010;  /* Dark Repeat */
+  /* Base Palette */
+  --color1: #F0BB78;       /* Warm Accent */
+  --color2: #131010;       /* Dark tone (text) */
+  --color3: #543A14;       /* Deep Brown */
+  --color4: #FFF0DC;       /* Light Background */
+  
+  /* Derived Shades */
+  --color1-light: #F7C89C; /* Lighter variation of Warm Accent */
+  --color1-dark:  #D09A58; /* Darker variation of Warm Accent */
+  
+  --color3-light: #7A4F29; /* Lighter variation of Deep Brown */
+  --color3-dark:  #3E250D; /* Darker variation of Deep Brown */
+  
+  --color4-accent: #FFF7E8; /* Slightly warmer light background */
+  --color2-light: #3A2E2E;  /* A soft, muted tone derived from dark */
   
   --font1: "Lora", serif;
   --font2: "Montserrat", serif;
 }
 
 /* ========================================
-   Global Body Styling
+   Global Body Styling with Enhanced Background
 ======================================== */
 body {
   font-family: var(--font2);
-  background: linear-gradient(90deg, var(--color1), var(--color4));
+  background: linear-gradient(135deg, var(--color4), var(--color4-accent) 40%, var(--color1-light) 60%, var(--color1));
 }
 
 /* ========================================
@@ -131,6 +139,11 @@ body {
   z-index: 1100;
 }
 
+/* This fade-out class will be added when closing modal */
+.fade-out {
+  animation: fadeout 0.5s forwards;
+}
+
 .modalclass {
   background-color: var(--color4);
   width: 50%;
@@ -151,8 +164,8 @@ body {
 }
 
 .modal-description {
-  background-color: var(--color1);
-  color: var(--color2);
+  background-color: var(--color1-dark);
+  color: var(--color4);
   padding: 8px 16px;
   position: relative;
   width: 100%;
@@ -197,7 +210,7 @@ body {
   transform: translateX(-50%);
   font-family: 'Federo', sans-serif;
   color: var(--color2);
-  background: rgba(240, 187, 120, 0.8);
+  background: var(--color1-light);
   padding: 0.5rem 1rem;
   border-radius: 5px;
   opacity: 0;
@@ -242,7 +255,7 @@ body {
   z-index: 1000;
   width: 100%;
   transition: background 0.3s;
-  border-bottom: 2px solid var(--color3);
+  border-bottom: 2px solid var(--color3-dark);
 }
 
 .logo, .ted-logo {
@@ -301,7 +314,7 @@ body {
   left: -100%;
   width: 100%;
   height: 2px;
-  background-color: var(--color3);
+  background-color: var(--color3-dark);
   transition: left 0.3s ease-in-out;
 }
 
@@ -310,7 +323,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--color3);
+  color: var(--color3-dark);
 }
 
 .nav-links i {
@@ -318,7 +331,7 @@ body {
   transition: color 0.3s, transform 0.3s;
 }
 .nav-links i:hover {
-  color: var(--color3);
+  color: var(--color3-dark);
 }
 
 .icon-wrapper {
@@ -343,26 +356,30 @@ body {
   overflow: hidden;
 }
 
-.speakers, .sponsors {
+.speakers,
+.sponsors {
   padding: 50px;
   background: linear-gradient(90deg, var(--color1), var(--color4));
   margin-top: 20px;
 }
 
-.speakers h2, .sponsors h2 {
+.speakers h2,
+.sponsors h2 {
   font-size: 28px;
   margin-bottom: 20px;
   font-family: 'Cinzel', serif;
 }
 
-.speaker-list, .sponsor-list {
+.speaker-list,
+.sponsor-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.speaker, .sponsor {
+.speaker,
+.sponsor {
   background: linear-gradient(90deg, var(--color1), var(--color4));
   padding: 15px;
   border-radius: 8px;
@@ -371,7 +388,8 @@ body {
   text-align: center;
 }
 
-.speaker img, .sponsor img {
+.speaker img,
+.sponsor img {
   width: 100%;
   border-radius: 8px;
 }
@@ -439,4 +457,22 @@ body {
   .mobile-slider {
     display: none;
   }
+}
+
+/* ========================================
+   Keyframe Animations
+======================================== */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalappear {
+  from { opacity: 0; bottom: -300px; width: 0; }
+  to { opacity: 1; bottom: 0; width: 50%; }
 }
