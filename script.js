@@ -43,16 +43,11 @@ var slideData = {
 
 var modalContainer = document.getElementById("modal-container");
 
-// Desktop Modal: Click outside modal to close with fade-out and re-enable scrolling
+// Desktop Modal: Click outside modal to close and re-enable scrolling
 window.onclick = function(event) {
   if (event.target == modalContainer) {
-    // Add fade-out class
-    modalContainer.classList.add('fade-out');
-    setTimeout(function() {
-      modalContainer.style.display = "none";
-      modalContainer.classList.remove('fade-out');
-      document.body.style.overflow = "auto"; // re-enable scrolling
-    }, 500); // match the fade-out animation duration
+    modalContainer.style.display = "none";
+    document.body.style.overflow = "auto"; // re-enable scrolling
   }
 };
 
@@ -90,18 +85,14 @@ function hideCaption() {
 }
 
 /* Mobile Slider Functionality */
-// For mobile, toggle zoom on tap so that the caption appears
+// For mobile, when an image is clicked, add a zoom effect to both the image and its caption
 function openMobileModal(imgId) {
+  // Get the mobile image element that was clicked (assume each mobile-img has a data-id attribute)
   var mobileImg = document.querySelector('.mobile-img[data-id="' + imgId + '"]');
   if (mobileImg) {
     mobileImg.classList.toggle("zoom");
   }
-}
-
-/* Mobile Navigation Toggle */
-function toggleNav() {
-  var navLinks = document.getElementById("nav-links");
-  navLinks.classList.toggle("active");
+  // Optionally, you can also update text or open a modal similar to desktop here.
 }
 
 const speakers = [
