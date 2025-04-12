@@ -11,32 +11,28 @@
    Root Variables - Expanded Vintage Palette
 ======================================== */
 :root {
-  /* Base Palette */
-  --color1: #F0BB78;       /* Warm Accent */
-  --color2: #131010;       /* Dark tone (text) */
-  --color3: #543A14;       /* Deep Brown */
-  --color4: #FFF0DC;       /* Light Background */
+  --color1: #F0BB78;
+  --color2: #131010;
+  --color3: #543A14;
+  --color4: #FFF0DC;
   
-  /* Derived Shades */
-  --color1-light: #F7C89C; /* Lighter variation of Warm Accent */
-  --color1-dark:  #D09A58; /* Darker variation of Warm Accent */
-  
-  --color3-light: #7A4F29; /* Lighter variation of Deep Brown */
-  --color3-dark:  #3E250D; /* Darker variation of Deep Brown */
-  
-  --color4-accent: #FFF7E8; /* Slightly warmer light background */
-  --color2-light: #3A2E2E;  /* A soft, muted tone derived from dark */
+  --color1-light: #F7C89C;
+  --color1-dark:  #D09A58;
+  --color3-light: #7A4F29;
+  --color3-dark:  #3E250D;
+  --color4-accent: #FFF7E8;
+  --color2-light: #3A2E2E;
   
   --font1: "Lora", serif;
   --font2: "Montserrat", serif;
 }
 
 /* ========================================
-   Global Body Styling with Enhanced Background
+   Global Body Styling (Background removed)
 ======================================== */
 body {
   font-family: var(--font2);
-  background: linear-gradient(135deg, var(--color4), var(--color4-accent) 40%, var(--color1-light) 60%, var(--color1));
+  background: none;
 }
 
 /* ========================================
@@ -69,46 +65,17 @@ body {
   transform: translateZ(17.375rem);
   filter: blur(0.03rem);
 }
+.img:hover + * { transform: translateZ(14.77rem) rotateY(35deg); filter: blur(0.06rem); }
+.img:hover + * + * { transform: translateZ(9.73rem) rotateY(40deg); filter: blur(0.09rem); }
+.img:hover + * + * + * { transform: translateZ(4.17rem) rotateY(35deg); filter: blur(0.12rem); }
+.img:hover + * + * + * + * { transform: translateZ(1.1rem) rotateY(25deg); filter: blur(0.15rem); }
 
-.img:hover + * {
-  transform: translateZ(14.77rem) rotateY(35deg);
-  filter: blur(0.06rem);
-}
+.img:has(+ :hover) { transform: translateZ(14.77rem) rotateY(-35deg); filter: blur(0.03rem); }
+.img:has(+ * + :hover) { transform: translateZ(9.73rem) rotateY(-40deg); filter: blur(0.06rem); }
+.img:has(+ * + * + :hover) { transform: translateZ(4.17rem) rotateY(-35deg); filter: blur(0.09rem); }
+.img:has(+ * + * + * + :hover) { transform: translateZ(1.1rem) rotateY(-25deg); filter: blur(0.12rem); }
 
-.img:hover + * + * {
-  transform: translateZ(9.73rem) rotateY(40deg);
-  filter: blur(0.09rem);
-}
-
-.img:hover + * + * + * {
-  transform: translateZ(4.17rem) rotateY(35deg);
-  filter: blur(0.12rem);
-}
-
-.img:hover + * + * + * + * {
-  transform: translateZ(1.1rem) rotateY(25deg);
-  filter: blur(0.15rem);
-}
-
-/* Reverse hover effects */
-.img:has(+ :hover) {
-  transform: translateZ(14.77rem) rotateY(-35deg);
-  filter: blur(0.03rem);
-}
-.img:has(+ * + :hover) {
-  transform: translateZ(9.73rem) rotateY(-40deg);
-  filter: blur(0.06rem);
-}
-.img:has(+ * + * + :hover) {
-  transform: translateZ(4.17rem) rotateY(-35deg);
-  filter: blur(0.09rem);
-}
-.img:has(+ * + * + * + :hover) {
-  transform: translateZ(1.1rem) rotateY(-25deg);
-  filter: blur(0.12rem);
-}
-
-/* Caption for desktop slider (Federo, no box) */
+/* Caption */
 .caption {
   font-family: 'Federo', sans-serif;
   background: none;
@@ -125,13 +92,13 @@ body {
 }
 
 /* ========================================
-   Modal Styling (Desktop)
+   Modal Styling (Transparent)
 ======================================== */
 .modal-container {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: transparent;
   width: 100%;
   height: 100vh;
   animation: fadein 0.5s;
@@ -139,13 +106,8 @@ body {
   z-index: 1100;
 }
 
-/* This fade-out class will be added when closing modal */
-.fade-out {
-  animation: fadeout 0.5s forwards;
-}
-
 .modalclass {
-  background-color: var(--color4);
+  background-color: transparent;
   width: 50%;
   margin: 10% auto;
   border-radius: 10px;
@@ -164,14 +126,12 @@ body {
 }
 
 .modal-description {
-  background-color: var(--color1-dark);
+  background-color: transparent;
   color: var(--color4);
   padding: 8px 16px;
-  position: relative;
   width: 100%;
   border-radius: 0 0 10px 10px;
   animation: fadein 1.5s;
-  box-shadow: none;
 }
 
 /* ========================================
@@ -180,14 +140,12 @@ body {
 .mobile-slider {
   display: none;
 }
-
 .mobile-slider .mobile-img-container {
   display: flex;
   overflow-x: auto;
   gap: 1rem;
   padding: 1rem;
 }
-
 .mobile-slider .mobile-img {
   position: relative;
   min-width: 80%;
@@ -198,11 +156,9 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
-
 .mobile-slider .mobile-img.zoom {
   transform: scale(1.1);
 }
-
 .mobile-slider .mobile-caption {
   position: absolute;
   bottom: 10px;
@@ -210,51 +166,30 @@ body {
   transform: translateX(-50%);
   font-family: 'Federo', sans-serif;
   color: var(--color2);
-  background: var(--color1-light);
+  background: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
 .mobile-slider .mobile-img.zoom .mobile-caption {
   opacity: 1;
 }
 
 /* ========================================
-   Hamburger Menu (Mobile Nav)
-======================================== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 22px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  height: 4px;
-  background: var(--color2);
-  border-radius: 2px;
-}
-
-/* ========================================
-   Navigation Bar (Desktop & Mobile)
+   Navigation Bar (Transparent)
 ======================================== */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: linear-gradient(90deg, var(--color1), var(--color4));
+  background: none;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
-  transition: background 0.3s;
   border-bottom: 2px solid var(--color3-dark);
 }
 
@@ -270,14 +205,13 @@ body {
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 .logo img:hover, .ted-logo img:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
   cursor: pointer;
 }
 
-/* Navigation links using Cinzel for a classy vintage feel */
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -286,7 +220,6 @@ body {
   font-size: 1rem;
   font-family: 'Cinzel', serif;
 }
-
 .nav-links li {
   position: relative;
   transition: transform 0.3s;
@@ -294,7 +227,6 @@ body {
 .nav-links li:hover {
   transform: scale(1.05);
 }
-
 .nav-links a {
   text-decoration: none;
   color: var(--color2);
@@ -306,7 +238,6 @@ body {
   overflow: hidden;
   padding: 0.5rem 0;
 }
-
 .nav-links a::before {
   content: '';
   position: absolute;
@@ -317,15 +248,12 @@ body {
   background-color: var(--color3-dark);
   transition: left 0.3s ease-in-out;
 }
-
 .nav-links a:hover::before {
   left: 0;
 }
-
 .nav-links a:hover {
   color: var(--color3-dark);
 }
-
 .nav-links i {
   font-size: 1.2rem;
   transition: color 0.3s, transform 0.3s;
@@ -348,28 +276,25 @@ body {
 }
 
 /* ========================================
-   Speakers & Sponsors Sections
+   Speakers & Sponsors
 ======================================== */
 .sponsor-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
-
 .speakers,
 .sponsors {
   padding: 50px;
-  background: linear-gradient(90deg, var(--color1), var(--color4));
+  background: none;
   margin-top: 20px;
 }
-
 .speakers h2,
 .sponsors h2 {
   font-size: 28px;
   margin-bottom: 20px;
   font-family: 'Cinzel', serif;
 }
-
 .speaker-list,
 .sponsor-list {
   display: flex;
@@ -377,17 +302,15 @@ body {
   flex-wrap: wrap;
   gap: 20px;
 }
-
 .speaker,
 .sponsor {
-  background: linear-gradient(90deg, var(--color1), var(--color4));
+  background: none;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   width: 200px;
   text-align: center;
 }
-
 .speaker img,
 .sponsor img {
   width: 100%;
@@ -398,47 +321,37 @@ body {
    Footer
 ======================================== */
 .footer {
-  background: var(--color2);
+  background: none;
   color: var(--color5);
   text-align: center;
   padding: 20px 0;
   font-size: 14px;
 }
-
 .footer-content {
   max-width: 800px;
   margin: auto;
 }
-
 .footer a {
   color: var(--color4);
   text-decoration: none;
   margin: 0 10px;
 }
-
 .footer a:hover {
   text-decoration: underline;
 }
 
 /* ========================================
-   Responsive Adjustments (Mobile)
+   Responsive
 ======================================== */
 @media screen and (max-width: 767px) {
-  .desktop-slider {
-    display: none;
-  }
-  .mobile-slider {
-    display: block;
-  }
-  /* Show hamburger on mobile and hide desktop nav links */
-  .hamburger {
-    display: flex;
-  }
+  .desktop-slider { display: none; }
+  .mobile-slider { display: block; }
+  .hamburger { display: flex; }
   #nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: linear-gradient(90deg, var(--color1), var(--color4));
+    background: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -452,26 +365,17 @@ body {
     text-align: center;
   }
 }
-
 @media screen and (min-width: 768px) {
-  .mobile-slider {
-    display: none;
-  }
+  .mobile-slider { display: none; }
 }
 
 /* ========================================
-   Keyframe Animations
+   Animations
 ======================================== */
 @keyframes fadein {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-@keyframes fadeout {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
 @keyframes modalappear {
   from { opacity: 0; bottom: -300px; width: 0; }
   to { opacity: 1; bottom: 0; width: 50%; }
