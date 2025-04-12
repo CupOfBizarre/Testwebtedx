@@ -43,11 +43,16 @@ var slideData = {
 
 var modalContainer = document.getElementById("modal-container");
 
-// Desktop Modal: Click outside modal to close and re-enable scrolling
+// Desktop Modal: Click outside modal to close with fade-out and re-enable scrolling
 window.onclick = function(event) {
   if (event.target == modalContainer) {
-    modalContainer.style.display = "none";
-    document.body.style.overflow = "auto"; // re-enable scrolling
+    // Add fade-out class
+    modalContainer.classList.add('fade-out');
+    setTimeout(function() {
+      modalContainer.style.display = "none";
+      modalContainer.classList.remove('fade-out');
+      document.body.style.overflow = "auto"; // re-enable scrolling
+    }, 500); // match the fade-out animation duration
   }
 };
 
